@@ -120,6 +120,7 @@ alias vim="nvim"
 
 source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export PATH=$PATH:/usr/local/go/bin
+export GITHUB_USERNAME="aleksysto"
 
 # Created by `pipx` on 2025-02-17 08:39:35
 export PATH="$PATH:/home/user/.local/bin"
