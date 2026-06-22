@@ -28,7 +28,12 @@ vim.colorcolumn = "80"
 vim.g.mapleader = " "
 vim.opt.scrolloff = 10
 vim.opt.fillchars = { eob = " " }
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagnostic.on_publish_diagnostics, {
+vim.diagnostic.config({ virtual_text = true })
+
+local border_style = "rounded" -- options: "single", "double", "rounded", "solid", "shadow"
+-- Diagnostics float
+vim.diagnostic.config({
+	float = { border = border_style },
 	-- Disable underline, it's very annoying
 	underline = false,
 	-- Enable virtual text, override spacing to 4
@@ -36,26 +41,6 @@ vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(vim.lsp.diagn
 	signs = true,
 	update_in_insert = true,
 	source = true,
-})
-vim.diagnostic.config({ virtual_text = true })
-
--- Hover
-local border_style = "rounded" -- options: "single", "double", "rounded", "solid", "shadow"
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-	border = border_style,
-	max_width = 80,
-	max_height = 20,
-})
-
--- Signature help
-vim.lsp.handlers["textDocument/signatureHelp"] = vim.lsp.with(vim.lsp.handlers.signature_help, {
-	border = border_style,
-	max_width = 80,
-})
-
--- Diagnostics float
-vim.diagnostic.config({
-	float = { border = border_style },
 })
 vim.api.nvim_create_user_command("TextSurround", function(opt)
 	local character = opt.args
@@ -161,10 +146,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			vim.diagnostic.open_float({ source = true })
 		end, opts)
 		vim.keymap.set("n", "[d", function()
-			vim.diagnostic.goto_next()
+			vim.diagnostic.jump({ count = 1 })
 		end, opts)
 		vim.keymap.set("n", "]d", function()
-			vim.diagnostic.goto_prev()
+			vim.diagnostic.jump({ count = -1 })
 		end, opts)
 		vim.keymap.set("n", "<leader>vca", function()
 			vim.lsp.buf.code_action()

@@ -31,27 +31,6 @@ return {
 				debounce_text_changes = 100,
 			},
 		}
-		-- vim.lsp.config("ty", {
-		-- 	settings = {
-		-- 		ty = {
-		-- 			diagnosticMode = "workspace",
-		-- 			configuration = {
-		-- 				-- environment = {
-		-- 				-- 	python = "./.venv",
-		-- 				-- 	root = { "./src", "./" },
-		-- 				-- },
-		-- 				rules = {
-
-		-- 					["possibly-unresolved-reference"] = "warn",
-		-- 					["possibly-missing-import"] = "warn",
-		-- 				},
-		-- 			},
-		-- 		},
-		-- 	},
-		-- })
-
-		-- Required: Enable the language server
-		-- vim.lsp.enable("ty")
 
 		vim.lsp.config("clangd", {
 			-- Server-specific settings. See `:help lsp-quickstart`
@@ -83,16 +62,3 @@ return {
 		})
 	end,
 }
--- vim.lsp.config.ruff = {
---   on_attach = function(client, _)
---     -- Ruff should NOT be asked for “language intelligence”
---     client.server_capabilities.hoverProvider = false
---     client.server_capabilities.definitionProvider = false
---     client.server_capabilities.referencesProvider = false
---     client.server_capabilities.renameProvider = false
---     client.server_capabilities.completionProvider = nil
---     client.server_capabilities.signatureHelpProvider = nil
---   end,
--- }
---
--- vim.lsp.enable({ "ruff", "pyrefly" })
