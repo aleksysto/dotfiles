@@ -1,0 +1,10 @@
+# BEGIN_KITTY_THEME
+# Rosé Pine Moon
+include current-theme.conf
+# END_KITTY_THEME
+font_family JetBrainsMonoNL Nerd Font
+font_size 12.0
+window_decorations none
+hide_window_decorations yes
+linux_display_server x11
+enable_wayland no
