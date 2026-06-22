@@ -13,7 +13,19 @@ return {
 				border = "rounded",
 			},
 		})
-		require("mason-lspconfig").setup()
+		require("mason-lspconfig").setup({
+			ensure_installed = {
+				"pyright",
+				"ruff",
+				"pydocstyle",
+				"yaml-language-server",
+				"yamlfix",
+				"yamllint",
+				"yamlfmt",
+				"markdownlint",
+				"markdownlint-cli2",
+			},
+		})
 		-- Optional: Only required if you need to update the language server settings
 		vim.lsp.config.pyright = {
 			settings = {
