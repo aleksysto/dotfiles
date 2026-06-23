@@ -6,6 +6,7 @@ return {
 		"neovim/nvim-lspconfig",
 		"mason-org/mason.nvim",
 		"mason-org/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 	},
 	config = function()
 		require("mason").setup({
@@ -17,8 +18,12 @@ return {
 			ensure_installed = {
 				"pyright",
 				"ruff",
-				"pydocstyle",
 				"yaml-language-server",
+			},
+		})
+		require("mason-tool-installer").setup({
+			ensure_installed = {
+				"pydocstyle",
 				"yamlfix",
 				"yamllint",
 				"yamlfmt",
