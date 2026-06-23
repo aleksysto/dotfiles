@@ -18,7 +18,7 @@ return {
 			ensure_installed = {
 				"pyright",
 				"ruff",
-				"yaml-language-server",
+				"yamlls",
 			},
 		})
 		require("mason-tool-installer").setup({
